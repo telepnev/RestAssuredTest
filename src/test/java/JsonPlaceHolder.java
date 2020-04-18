@@ -24,7 +24,7 @@ public class JsonPlaceHolder extends TestConfig {
                 "\"userId\":1\n" +
                 "\n" +
                 "}";
-        given().body(putBodyJson).log().uri().
+        given().body(putBodyJson).log().all().
                 when().put(PlacesHolder_PUT).
                 then().log().body().statusCode(200);
     }
@@ -65,7 +65,9 @@ public class JsonPlaceHolder extends TestConfig {
                 "      </Address>\n" +
                 "  </Employee>\n" +
                 "</Company>";
-        given().body(postXML).log().uri().
+
+                    // add RequestSpecificationXml - protected
+        given().spec(RequestSpecificationXml).body(postXML).log().all().
                 when().post("").
                 then().log().body().statusCode(200);
     }

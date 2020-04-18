@@ -2,7 +2,7 @@ package constants;
 public class Contstants {
 
     public static class RunVeriable {
-        public static String server = Servers.REQUESTBIN_URL;
+        public static String server = Servers.PlacesHolder_URL;
         public static String path = "";
 
     }
