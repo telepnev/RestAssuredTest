@@ -16,7 +16,7 @@ public class Contstants {
 
     }
     public static class PATH {
-        public static String SWAPI_PATH = "";
+        public static String SWAPI_PATH = "api/";
         public static String GOOGLE_PLACES_PATH;
     }
     public static class Actions {

@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeClass;
 import static constants.Contstants.RunVeriable.path;
 import static constants.Contstants.RunVeriable.server;
 import static constants.Contstants.Servers.REQUESTBIN_URL;
+import static constants.Contstants.Servers.SWAPI_URL;
 
 public class TestConfig {
 
@@ -30,6 +31,9 @@ public class TestConfig {
             .build();
     protected ResponseSpecification responseSpecificationForPost = new ResponseSpecBuilder()
             .expectStatusCode(201)
+            .build();
+    protected RequestSpecification requestSpecificationForSwapiTest = new RequestSpecBuilder()
+            .setBaseUri(SWAPI_URL)
             .build();
 
 
