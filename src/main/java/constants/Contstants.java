@@ -27,7 +27,7 @@ public class Contstants {
         // PlacesHolder
         public static String PlacesHolder_GET = "comments/";
         public static String PlacesHolder_PUT = "posts/1/";
-        public static String PlacesHolder_DELET = "posts/1/";
+        public static String PlacesHolder_DELETE = "posts/1/";
 
     }
 }

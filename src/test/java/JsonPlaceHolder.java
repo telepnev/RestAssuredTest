@@ -29,9 +29,9 @@ public class JsonPlaceHolder extends TestConfig {
                 then().log().body().statusCode(200);
     }
     @Test
-    public void Delet() {
+    public void Delete() {
         given().log().uri().
-                when().delete(PlacesHolder_DELET).
+                when().delete(PlacesHolder_DELETE).
                 then().log().body().statusCode(200);
     }
 
