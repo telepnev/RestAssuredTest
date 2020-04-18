@@ -2,7 +2,9 @@ package config;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
 
 import static constants.Contstants.RunVeriable.path;
@@ -12,11 +14,24 @@ import static constants.Contstants.Servers.REQUESTBIN_URL;
 public class TestConfig {
 
 
-    protected RequestSpecification RequestSpecificationXml = new RequestSpecBuilder()
+    protected RequestSpecification requestSpecificationXml = new RequestSpecBuilder()
             .addHeader( "Content-Type", "application/xml" )
             .addCookie("testCookieXML")
             .setBaseUri(REQUESTBIN_URL)
             .build();
+
+
+    protected RequestSpecification requestSpecificationJson = new RequestSpecBuilder()
+            .addHeader( "Content-Type", "application/json" )
+            .addCookie("testCookieJSON")
+            .build();
+    protected ResponseSpecification responseSpecificationForGet = new ResponseSpecBuilder()
+            .expectStatusCode(200)
+            .build();
+    protected ResponseSpecification responseSpecificationForPost = new ResponseSpecBuilder()
+            .expectStatusCode(201)
+            .build();
+
 
     //Что бы этот метод выполнялся перед каждым тестовым методом добавим анатацию @BeforeClass
 @BeforeClass
@@ -24,13 +39,6 @@ public class TestConfig {
         RestAssured.baseURI = server;
         RestAssured.basePath = path;
 
-        // этот реквест сюда потому что он с общей толпой пойдет, верхний сам по себе.
-    RequestSpecification RequestSpecificationJson = new RequestSpecBuilder()
-            .addHeader( "Content-Type", "application/json" )
-            .addCookie("testCookieJSON")
-            .build();
-
-        RestAssured.requestSpecification = RequestSpecificationJson;
 
         /*
         //может назначаться как на группу так и на точечные запросы.

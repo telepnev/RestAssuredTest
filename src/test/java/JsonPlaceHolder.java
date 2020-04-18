@@ -45,7 +45,7 @@ public class JsonPlaceHolder extends TestConfig {
                 "}";
         given().body(postBody).log().uri().
                 when().post(PlacesHolder_POST).
-                then().log().body().statusCode(201);
+                then().spec(responseSpecificationForPost).log().body();
 
         //  для пост запросов приходят 201 который говорит что создается какой то обьект на сервере, но это не точно))
     }
@@ -66,10 +66,10 @@ public class JsonPlaceHolder extends TestConfig {
                 "  </Employee>\n" +
                 "</Company>";
 
-                    // add RequestSpecificationXml - protected
-        given().spec(RequestSpecificationXml).body(postXML).log().all().
+                    // add requestSpecificationXml - protected
+        given().spec(requestSpecificationXml).body(postXML).log().all().
                 when().post("").
-                then().log().body().statusCode(200);
+                then().spec(responseSpecificationForGet).log().body().statusCode(200);
     }
 
 }
