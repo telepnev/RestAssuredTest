@@ -2,13 +2,14 @@ package constants;
 public class Contstants {
 
     public static class RunVeriable {
-        public static String server = Servers.PlacesHolder_URL;
+        public static String server = Servers.REQUESTBIN_URL;
         public static String path = "";
 
     }
     public static class Servers {
         public static String PlacesHolder_URL = "https://jsonplaceholder.typicode.com/";
         public static String SWAPI_URL = "https://swapi.dev/";
+        public static String REQUESTBIN_URL = "https://ens5yy47zdhci.x.pipedream.net";
         public static String GOOGLE_PLACES_URL;
 
 
@@ -28,6 +29,7 @@ public class Contstants {
         public static String PlacesHolder_GET = "comments/";
         public static String PlacesHolder_PUT = "posts/1/";
         public static String PlacesHolder_DELETE = "posts/1/";
+        public static String PlacesHolder_POST = "posts/";
 
     }
 }
