@@ -8,8 +8,10 @@ public class FirstTest extends TestConfig {
 
     @Test
     public void myFirstTest() {
-        given().
+        //логируем запрос
+        given().log().ifValidationFails().
                 when().get(SWAPI_GET_PEOPLE + "1").
-                then().statusCode(200);
+                // логируем ответ
+                then().log().body().statusCode(200);
     }
 }
