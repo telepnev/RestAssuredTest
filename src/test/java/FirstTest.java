@@ -9,7 +9,7 @@ public class FirstTest extends TestConfig {
     @Test
     public void myFirstTest() {
         //логируем запрос
-        given().log().ifValidationFails().
+        given().log().uri().
                 when().get(SWAPI_GET_PEOPLE + "1").
                 // логируем ответ
                 then().log().body().statusCode(200);
